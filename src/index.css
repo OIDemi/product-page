@@ -1,0 +1,237 @@
+@layer reset,globals,components;
+
+@layer reset {
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer globals {
+  :root {
+    --clr-white: #ffffff;
+    --clr-black: #000000;
+
+    --clr-grey-950: #1d2026;
+    --clr-grey-500: #69707d;
+    --clr-grey-300: #c3cad9;
+    --clr-grey-100: #e4e9f2;
+    --clr-grey-50: #f6f8fd;
+
+    --clr-orange-500: #ff7e1b;
+    --clr-orange-300: #ffab6a;
+  }
+
+  /* kumbh-sans-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kumbh Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/src/assets/fonts/kumbh-sans-v26-latin-regular.woff2")
+      format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* kumbh-sans-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kumbh Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/src/assets/fonts/kumbh-sans-v26-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  body {
+    font-family: "Kumbh Sans", sans-serif;
+  }
+
+  #root {
+    width: min(100%, calc(1200 / 16 * 1rem));
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(28 / 16 * 1rem) 0;
+    border: 1px solid red;
+  }
+
+  header .logo-and-nav-links-mobile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      display: none;
+    }
+  }
+  header .logo-and-nav-links {
+    display: flex;
+    align-items: center;
+    gap: calc(56 / 16 * 1rem);
+    @media (width < calc(1024 / 16 * 1rem)) {
+      display: none;
+    }
+  }
+
+  header .logo-and-nav-links nav ul {
+    display: flex;
+    gap: 2rem;
+  }
+  header .cart-and-avatar-icon {
+    display: flex;
+    align-items: center;
+    gap: calc(16 / 16 * 1rem);
+  }
+
+  header .avatar-icon:hover {
+    outline: 2px solid var(--clr-orange-500);
+    border-radius: 50%;
+  }
+
+  main {
+    border: 2px solid yellow;
+    flex: 1;
+  }
+
+  .gallery-layout {
+    display: grid;
+    align-items: center;
+    gap: calc(128 / 16 * 1rem);
+    @media (width < calc(1024 / 16 * 1rem)) {
+      grid-template-rows: auto 1fr;
+    }
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  main .img-gallery-container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .img-gallery-subcontainer {
+    position: relative;
+    border-radius: calc(15 / 16 * 1rem);
+    overflow: hidden;
+  }
+
+  .img-gallery-subcontainer .previous-btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(50%, -40%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--clr-white);
+    cursor: pointer;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      display: none;
+    }
+  }
+
+  .img-gallery-subcontainer .next-btn {
+    position: absolute;
+    bottom: 50%;
+    transform: translate(-50%, 60%);
+    cursor: pointer;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 0;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      display: none;
+    }
+  }
+
+  main .img-thumbnail-container {
+    display: none;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .thumbnail-img {
+    border-radius: calc(15 / 16 * 1rem);
+    overflow: hidden;
+  }
+  .thumbnail-img:hover {
+    outline: 2px solid var(--clr-orange-500);
+  }
+
+  .drop-quality {
+    opacity: 0.5;
+    outline: 2px solid var(--clr-orange-500);
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @media (width >= calc(768 / 16 * 1rem)) {
+      flex-direction: row;
+    }
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: none;
+    padding: 1rem 0.5rem;
+  }
+
+  .quantity-btn {
+    justify-content: space-between;
+    flex: 1;
+  }
+  .reduce-icon,
+  .increase-icon {
+    cursor: pointer;
+  }
+  .add-to-cart-btn {
+    justify-content: center;
+    flex: 1;
+    cursor: pointer;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      flex: 2;
+    }
+  }
+}
