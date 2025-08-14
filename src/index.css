@@ -1,4 +1,88 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 @layer reset,globals,components;
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 
 @layer reset {
   *,
@@ -42,6 +126,40 @@
 
     --clr-orange-500: #ff7e1b;
     --clr-orange-300: #ffab6a;
+
+    /*TAILWIND*/
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
   }
 
   /* kumbh-sans-regular - latin */
@@ -66,15 +184,49 @@
   body {
     font-family: "Kumbh Sans", sans-serif;
   }
-
   #root {
     width: min(100%, calc(1200 / 16 * 1rem));
-    margin-inline: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
 
+  p,
+  a {
+    color: var(--clr-grey-500);
+  }
+  a {
+    font-size: calc(15 / 16 * 1rem);
+  }
+  p {
+    font-size: calc(15 / 16 * 1rem);
+
+    @media (width >= calc(768 / 16 * 1rem)) {
+      font-size: 1rem;
+    }
+  }
+  a:hover {
+    color: var(--clr-black);
+  }
+
+  h1 {
+    font-weight: 700;
+    color: var(--clr-grey-500);
+    font-size: calc(12 / 16 * 1rem);
+    @media (width >= calc(768 / 16 * 1rem)) {
+      font-size: calc(12 / 16 * 1rem);
+    }
+  }
+  h2 {
+    font-weight: 700;
+    line-height: 32px;
+    font-size: calc(28 / 16 * 1rem);
+    @media (width >= calc(768 / 16 * 1rem)) {
+      font-size: calc(44 / 16 * 1rem);
+      line-height: 48px;
+    }
+  }
   header {
     display: flex;
     align-items: center;
@@ -128,25 +280,37 @@
     gap: calc(16 / 16 * 1rem);
   }
 
+  .dropdown-heading {
+    padding: 1rem;
+  }
+  .dropdown-item {
+    padding: 1rem;
+  }
+  header .avatar-icon {
+    transition: 0.2s ease-in-out;
+  }
   header .avatar-icon:hover {
-    outline: 2px solid var(--clr-orange-500);
+    border: 2px solid var(--clr-orange-500);
     border-radius: 50%;
   }
 
   main {
-    margin-top: 10px; /*TEMPORARY*/
     flex: 1;
   }
 
   .gallery-layout {
     display: grid;
     align-items: center;
-    gap: calc(128 / 16 * 1rem);
+    gap: calc(24 / 16 * 1rem);
+    @media (width >= calc(768 / 16 * 1rem)) {
+      gap: calc(48 / 16 * 1rem);
+    }
     @media (width < calc(1024 / 16 * 1rem)) {
       grid-template-rows: auto 1fr;
     }
     @media (width >= calc(1024 / 16 * 1rem)) {
       grid-template-columns: repeat(2, 1fr);
+      gap: calc(128 / 16 * 1rem);
     }
   }
 
@@ -158,8 +322,10 @@
 
   .img-gallery-subcontainer {
     position: relative;
-    border-radius: calc(15 / 16 * 1rem);
-    overflow: hidden;
+    @media (width >= calc(1024 / 16 * 1rem)) {
+      border-radius: calc(15 / 16 * 1rem);
+      overflow: hidden;
+    }
   }
 
   .img-gallery-subcontainer .previous-btn {
@@ -211,6 +377,7 @@
   .thumbnail-img {
     border-radius: calc(15 / 16 * 1rem);
     overflow: hidden;
+    transition: 0.2s ease-in-out;
   }
   .thumbnail-img:hover {
     outline: 2px solid var(--clr-orange-500);
@@ -219,6 +386,43 @@
   .drop-quality {
     opacity: 0.5;
     outline: 2px solid var(--clr-orange-500);
+  }
+
+  .img-gallery-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(24 / 16 * 1rem);
+  }
+  .img-gallery-details-container .price-container {
+    display: flex;
+    justify-content: space-between;
+    @media (width >= calc(768 / 16 * 1rem)) {
+      flex-direction: column;
+      gap: calc(8 / 16 * 1rem);
+    }
+  }
+  .price-container .discount-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .new-price-tag {
+    font-weight: 700;
+    font-size: calc(28 / 16 * 1rem);
+    color: var(--clr-black);
+  }
+  .discount {
+    background-color: var(--clr-grey-950);
+    color: var(--clr-white);
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 6px;
+    padding: 0.3em;
+  }
+  .old-price-tag {
+    text-decoration: line-through;
+    font-weight: 700;
   }
   .btn-container {
     display: flex;
@@ -239,17 +443,41 @@
   .quantity-btn {
     justify-content: space-between;
     flex: 1;
+    background-color: var(--clr-grey-50);
+    border-radius: 10px;
+  }
+  .quantity-btn {
+    color: var(--clr-grey-950);
+    font-weight: 700;
   }
   .reduce-icon,
   .increase-icon {
     cursor: pointer;
+    color: var(--clr-orange-500);
+  }
+
+  .reduce-icon:hover,
+  .increase-icon:hover {
+    color: var(--clr-orange-300);
   }
   .add-to-cart-btn {
     justify-content: center;
+    background-color: var(--clr-orange-500);
     flex: 1;
     cursor: pointer;
+    gap: 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 0px 10px var(--clr-orange-300);
     @media (width >= calc(1024 / 16 * 1rem)) {
       flex: 2;
     }
   }
+  .add-to-cart-btn:hover {
+    opacity: 0.5;
+  }
+}
+
+@layer components {
 }

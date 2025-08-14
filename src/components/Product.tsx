@@ -83,12 +83,12 @@ const Product = () => {
             Featuring a durable rubber outer sole, they’ll withstand everything
             the weather can offer.
           </p>
-          <div>
-            <div>
-              <p>$125.00</p>
-              <p>50%</p>
+          <div className='price-container'>
+            <div className='discount-container'>
+              <p className='new-price-tag'>$125.00</p>
+              <p className='discount'>50%</p>
             </div>
-            <p>$250.00</p>
+            <p className='old-price-tag'>$250.00</p>
           </div>
 
           <div className='btn-container'>
@@ -97,15 +97,15 @@ const Product = () => {
                 className='reduce-icon'
                 onClick={handleDecreaseQuantity}
               />
-              <p>{quantity}</p>
+              {quantity}
               <IncreaseQuantityIcon
                 className='increase-icon'
                 onClick={handleIncreaseQuantity}
               />
             </button>
             <button type='button' className='add-to-cart-btn btn'>
-              <CartIcon />
-              <p>Add to cart</p>
+              <CartIcon className='cart-icon' />
+              Add to cart
             </button>
           </div>
         </div>
