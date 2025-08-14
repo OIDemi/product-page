@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const Product = () => {
   const [count, setCount] = useState<number>(0);
+  const [quantity, setQuantity] = useState(0);
 
   const checkImg = (num: number) => {
     if (count !== num) setCount(num);
@@ -21,7 +22,13 @@ const Product = () => {
     if (count > 0) setCount((count) => count - 1);
   };
 
-  console.log(count);
+  const handleIncreaseQuantity = () => {
+    setQuantity((num) => num + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (quantity > 0) setQuantity((num) => num - 1);
+  };
   return (
     <main>
       <section className='gallery-layout'>
@@ -82,9 +89,15 @@ const Product = () => {
 
           <div className='btn-container'>
             <button type='button' className='quantity-btn btn'>
-              <ReduceQuantityIcon className='reduce-icon' />
-              <p>0</p>
-              <IncreaseQuantityIcon className='increase-icon' />
+              <ReduceQuantityIcon
+                className='reduce-icon'
+                onClick={handleDecreaseQuantity}
+              />
+              <p>{quantity}</p>
+              <IncreaseQuantityIcon
+                className='increase-icon'
+                onClick={handleIncreaseQuantity}
+              />
             </button>
             <button type='button' className='add-to-cart-btn btn'>
               <CartIcon />

@@ -80,7 +80,7 @@
     align-items: center;
     justify-content: space-between;
     padding: calc(28 / 16 * 1rem) 0;
-    border: 1px solid red;
+    border-bottom: 1px solid var(--clr-grey-100);
   }
 
   header .logo-and-nav-links-mobile {
@@ -104,6 +104,24 @@
     display: flex;
     gap: 2rem;
   }
+  header .logo-and-nav-links nav ul a {
+    position: relative;
+  }
+  header .logo-and-nav-links nav ul a::after {
+    content: "";
+    position: absolute;
+    bottom: -44px;
+
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+  header .logo-and-nav-links nav ul a:hover::after {
+    opacity: 1;
+    border-bottom: 5px solid var(--clr-orange-500);
+  }
   header .cart-and-avatar-icon {
     display: flex;
     align-items: center;
@@ -116,7 +134,7 @@
   }
 
   main {
-    border: 2px solid yellow;
+    margin-top: 10px; /*TEMPORARY*/
     flex: 1;
   }
 
