@@ -42,7 +42,11 @@ const Product = () => {
             >
               <PreviousIcon />
             </button>
-            <img src={data[count].image} alt='image 1' />
+            <img
+              src={data[count].image}
+              alt={`Image ${count + 1}`}
+              loading='lazy'
+            />
             <button type='button' className='next-btn' onClick={handleNextImg}>
               <NextIcon />
             </button>
