@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown";
 import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu";
+import { useState } from "react";
 
 type TCart = {
   id: number;
@@ -24,6 +25,8 @@ type TProps = {
   setCart: React.Dispatch<React.SetStateAction<TCart[]>>;
 };
 const Header = ({ cart, quantity, setCart }: TProps) => {
+  const [openModal, setOpenModal] = useState(false);
+
   const totalAmount = quantity * 125.0;
 
   const deleteFromCart = (id: number) => {
@@ -33,7 +36,11 @@ const Header = ({ cart, quantity, setCart }: TProps) => {
   return (
     <header>
       <div className='logo-and-nav-links-mobile'>
-        <img src={MenuIcon} alt='open menu' />
+        <img
+          src={MenuIcon}
+          alt='open menu'
+          onClick={() => setOpenModal(!openModal)}
+        />
         <img src={CompanyLogo} alt='sneakers' />
       </div>
       <div className='logo-and-nav-links'>
