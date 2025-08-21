@@ -12,6 +12,12 @@ import {
 } from "./ui/dropdown";
 import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTrigger,
+} from "./ui/sheet";
 
 type TCart = {
   id: number;
@@ -25,8 +31,6 @@ type TProps = {
   setCart: React.Dispatch<React.SetStateAction<TCart[]>>;
 };
 const Header = ({ cart, quantity, setCart }: TProps) => {
-  const [openModal, setOpenModal] = useState(false);
-
   const totalAmount = quantity * 125.0;
 
   const deleteFromCart = (id: number) => {
@@ -36,11 +40,33 @@ const Header = ({ cart, quantity, setCart }: TProps) => {
   return (
     <header>
       <div className='logo-and-nav-links-mobile'>
-        <img
-          src={MenuIcon}
-          alt='open menu'
-          onClick={() => setOpenModal(!openModal)}
-        />
+        <Sheet>
+          <SheetTrigger>
+            <img src={MenuIcon} alt='open menu' />
+          </SheetTrigger>
+          <SheetContent side='left' className='flex items-center mt-20'>
+            <nav className='flex items-center '>
+              <ul className='flex flex-col gap-[24px] font-bold text-black'>
+                <li>
+                  <a href='#'>Collections</a>
+                </li>
+                <li>
+                  <a href='#'>Men</a>
+                </li>
+                <li>
+                  <a href='#'>Women</a>
+                </li>
+                <li>
+                  <a href='#'>About</a>
+                </li>
+                <li>
+                  <a href='#'>Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </SheetContent>
+        </Sheet>
+
         <img src={CompanyLogo} alt='sneakers' />
       </div>
       <div className='logo-and-nav-links'>
