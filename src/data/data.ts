@@ -1,10 +1,10 @@
-import Image1 from "../assets/images/image-product-1.jpg";
+import Image1 from "../assets/images/image-product-1.webp";
 import Image1Thumbnail from "../assets/images/image-product-1-thumbnail.jpg";
-import Image2 from "../assets/images/image-product-2.jpg";
+import Image2 from "../assets/images/image-product-2.webp";
 import Image2Thumbnail from "../assets/images/image-product-2-thumbnail.jpg";
-import Image3 from "../assets/images/image-product-3.jpg";
+import Image3 from "../assets/images/image-product-3.webp";
 import Image3Thumbnail from "../assets/images/image-product-3-thumbnail.jpg";
-import Image4 from "../assets/images/image-product-4.jpg";
+import Image4 from "../assets/images/image-product-4.webp";
 import Image4Thumbnail from "../assets/images/image-product-4-thumbnail.jpg";
 
 type Data = {
