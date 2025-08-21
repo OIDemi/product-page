@@ -6,9 +6,19 @@ import PreviousIcon from "../assets/images/icon-previous.svg?react";
 import NextIcon from "../assets/images/icon-next.svg?react";
 import { useState } from "react";
 
-const Product = () => {
+type TCart = {
+  id: number;
+  image: string;
+  imageThumbnail: string;
+};
+type TProps = {
+  cart: TCart[];
+  setCart: React.Dispatch<React.SetStateAction<TCart[]>>;
+  quantity: number;
+  setQuantity: React.Dispatch<React.SetStateAction<number>>;
+};
+const Product = ({ cart, setCart, quantity, setQuantity }: TProps) => {
   const [count, setCount] = useState<number>(0);
-  const [quantity, setQuantity] = useState(0);
 
   const checkImg = (num: number) => {
     if (count !== num) setCount(num);
@@ -29,6 +39,14 @@ const Product = () => {
   const handleDecreaseQuantity = () => {
     if (quantity > 0) setQuantity((num) => num - 1);
   };
+
+  const addToCart = (product: TCart) => {
+    if (cart.length > 0) return;
+    const newCart = { ...product };
+    setCart([...cart, newCart]);
+  };
+
+  console.log(cart);
   return (
     <main>
       <section className='gallery-layout'>
@@ -103,7 +121,11 @@ const Product = () => {
                 onClick={handleIncreaseQuantity}
               />
             </button>
-            <button type='button' className='add-to-cart-btn btn'>
+            <button
+              type='button'
+              className='add-to-cart-btn btn'
+              onClick={() => addToCart(data[count])}
+            >
               <CartIcon className='cart-icon' />
               Add to cart
             </button>
