@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <>
-      <Header cart={cart} quantity={quantity} />
+      <Header cart={cart} quantity={quantity} setCart={setCart} />
       <Product
         cart={cart}
         setCart={setCart}

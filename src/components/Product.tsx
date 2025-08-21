@@ -42,6 +42,7 @@ const Product = ({ cart, setCart, quantity, setQuantity }: TProps) => {
 
   const addToCart = (product: TCart) => {
     if (cart.length > 0) return;
+    if (quantity === 0) setQuantity((count) => count + 1);
     const newCart = { ...product };
     setCart([...cart, newCart]);
   };

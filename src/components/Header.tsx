@@ -21,9 +21,15 @@ type TCart = {
 type TProps = {
   cart: TCart[];
   quantity: number;
+  setCart: React.Dispatch<React.SetStateAction<TCart[]>>;
 };
-const Header = ({ cart, quantity }: TProps) => {
+const Header = ({ cart, quantity, setCart }: TProps) => {
   const totalAmount = quantity * 125.0;
+
+  const deleteFromCart = (id: number) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
   return (
     <header>
       <div className='logo-and-nav-links-mobile'>
@@ -68,35 +74,56 @@ const Header = ({ cart, quantity }: TProps) => {
             <DropdownMenuSeparator />
 
             <DropdownMenuItem className='dropdown-item'>
-              <ul>
-                {cart.map((item) => (
-                  <li key={item.id} className='flex items-center gap-[1rem]'>
-                    <img
-                      src={item.imageThumbnail}
-                      alt='shoe image'
-                      className='rounded-[4px]'
-                      width={50}
-                      height={50}
-                    />
-                    <div className='flex  flex-col'>
-                      <p className=' '>Fall Limited Edition Sneakers</p>
-                      <div className='flex gap-[8px]'>
-                        <div className='flex'>
-                          <p>$125.00</p>
-                          <p>x</p>
-                          <p>{quantity}</p>
+              {cart.length === 0 ? (
+                <p className='text-center '>Your cart is empty</p>
+              ) : (
+                <>
+                  <ul>
+                    {cart.map((item) => (
+                      <li
+                        key={item.id}
+                        className='flex items-center gap-[1rem]'
+                      >
+                        <img
+                          src={item.imageThumbnail}
+                          alt='shoe image'
+                          className='rounded-[4px]'
+                          width={50}
+                          height={50}
+                        />
+                        <div className='flex  flex-col'>
+                          <p className=' '>Fall Limited Edition Sneakers</p>
+                          <div className='flex gap-[8px]'>
+                            <div className='flex'>
+                              <p>$125.00</p>
+                              <p>x</p>
+                              <p>{quantity}</p>
+                            </div>
+                            <p className=' font-bold'>
+                              ${totalAmount.toFixed(2)}
+                            </p>
+                          </div>
                         </div>
-                        <p className=' font-bold'>${totalAmount.toFixed(2)}</p>
-                      </div>
-                    </div>
-                    <img
-                      src={DeleteIcon}
-                      alt='Delete product'
-                      className='cursor-pointer'
-                    />
-                  </li>
-                ))}
-              </ul>
+                        <img
+                          src={DeleteIcon}
+                          alt='Delete product'
+                          className='cursor-pointer'
+                          onClick={() => deleteFromCart(item.id)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </DropdownMenuItem>
+            <DropdownMenuItem className='flex justify-center '>
+              <button
+                className={`bg-[#ff7e1b] w-[80%] p-10 ${
+                  cart.length > 0 ? "block" : "hidden"
+                }`}
+              >
+                Checkout
+              </button>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
