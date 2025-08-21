@@ -1,70 +1,61 @@
-# React + TypeScript + Vite
+# Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site: [https://oj-product-page.netlify.app/](https://oj-product-page.netlify.app/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+This project is a **responsive e-commerce product page** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. It features a product gallery, image previews, dynamic cart functionality, and a modern, accessible UI. The implementation demonstrates modular React component design, advanced styling with Tailwind, and state management for the cart and product views.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Product Gallery:** View multiple images of the product, with both main images and thumbnails.
+- **Image Modal:** Click on an image to view it enlarged in a modal with next/previous navigation.
+- **Cart Functionality:** Add product quantities to the cart, view cart contents, and manage quantities directly from the UI.
+- **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop.
+- **Accessible UI:** Keyboard navigation and accessible semantic HTML.
+- **Modern Tooling:** Fast development experience with Vite, TypeScript type safety, and Tailwind utility classes.
+- **ESLint & Linting:** Strong linting setup for code consistency and best practices.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Tech Stack
+
+- **React** (UI library)
+- **TypeScript** (type safety)
+- **Vite** (development/build tool)
+- **Tailwind CSS** (utility-first styling)
+- **ESLint** (linting and code quality)
+- **SVGR** (SVG imports as React components)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16+ recommended)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/OIDemi/product-page.git
+cd product-page
+npm install
+# or
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Running Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+# or
+yarn dev
 ```
-Hello world
+
+Open [http://localhost:5173](http://localhost:5173) (default) to view in your browser.
